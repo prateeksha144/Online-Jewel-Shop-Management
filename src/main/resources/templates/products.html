@@ -1,35 +1,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Product Manager</title>
-	</head>
-	<body align="center">
-		<h1>Product Management</h1>
-		<a href="new">Add New Product</a>
-		<br><br>
-		<table border="1" align="center" cellpadding="10">
-			<thead>
-				<tr>
-					<th>Product ID</th>
-					<th>Product Name</th>
-					<th>Brand</th>
-					<th>Made IN</th>
-					<th>Price</th>
-					<th>Activities</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="product : ${listProducts}">
-					<td th:text="${product.id}">ID</td>
-					<td th:text="${product.name}">Name</td>
-					<td th:text="${product.brand}">Brand</td>
-					<td th:text="${product.madein}">MadeIN</td>
-					<td th:text="${product.price}">Price</td>
-					<td>
-						<a th:href="@{'/edit/' +${product.id}}">Edit</a>
-						<a th:href="@{'/delete/' +${product.id}}">Delete</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</body>
+<head>
+    <title>Product Manager</title>
+    <style>
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body align="center">
+<h1>ONLINE JEWEL SHOP MANAGEMENT</h1>
+<a href="new">Add New Product</a>
+<br><br>
+<table border="1" align="center" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Brand</th>
+        <th>Made IN</th>
+        <th>Price</th>
+        <th>Activities</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${listProducts}">
+        <td th:text="${product.id}">ID</td>
+        <td th:text="${product.name}">Name</td>
+        <td th:text="${product.brand}">Brand</td>
+        <td th:text="${product.madein}">MadeIN</td>
+        <td th:text="${product.price}">Price</td>
+        <td>
+            <a th:href="@{'/edit/' +${product.id}}">Edit</a>
+            <a th:href="@{'/delete/' +${product.id}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
 </html>
